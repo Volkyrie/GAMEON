@@ -24,7 +24,7 @@ const errorMsg = document.querySelectorAll(".error");
 
 // List of character accepted
 const onlyLetters = new RegExp(/[a-zA-Z-]{2,}/i);
-const emailPattern = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
+let emailPattern = new RegExp(/[a-z0-9\.-]+@[a-z0-9\.-]+(\.[a-z0-9._-]+)/);
 const onlyNumbers = new RegExp(/[0-9]{1,}/);
 
 // launch modal event
@@ -70,44 +70,49 @@ function checkRadiobox() {
   return false;
 }
 
+// Empty errorMsg
+
+function emptyError() {
+  for (var i = 0; i < 7; i++)
+  {
+    errorMsg[i].innerText = "";
+  }
+}
+
 // Validation of all inputs
 formValidation.addEventListener('submit', (event) => {
   event.preventDefault();
   if (!firstInput.value.match(onlyLetters)) {
-    errorMsg[0].innerHTML = "Syntaxe du prénom incorrecte";
+    errorMsg[0].innerText = "Syntaxe du prénom incorrecte";
   }
   else if(!lastInput.value.match(onlyLetters)) {
-    errorMsg[1].innerHTML = "Syntaxe du nom incorrecte";
-    errorMsg[0].innerHTML = "";
+    emptyError();
+    errorMsg[1].innerText = "Syntaxe du nom incorrecte";
   }
-  else if(!emailInput.value.match(emailPattern)) {
-    errorMsg[2].innerHTML = "Syntaxe de l'email incorrecte";
-    errorMsg[1].innerHTML = "";
+  else if(!emailPattern.test(emailInput.value)) {
+    emptyError();
+    errorMsg[2].innerText = "Syntaxe de l'email incorrecte";
   }
   else if(!checkDate()) {
-    errorMsg[3].innerHTML = "Date incorrecte";
-    errorMsg[2].innerHTML = "";
+    emptyError();
+    errorMsg[3].innerText = "Date incorrecte";
   }
   else if(!quantityInput.value.match(onlyNumbers)) {
-    errorMsg[4].innerHTML = "Veuillez entrer un nombre";
-    errorMsg[3].innerHTML = "";
+    emptyError();
+    errorMsg[4].innerText = "Veuillez entrer un nombre";
   }
   else if(!checkRadiobox()) {
-    errorMsg[5].innerHTML = "Veuillez sélectionner un lieu";
-    errorMsg[4].innerHTML = "";
+    emptyError();
+    errorMsg[5].innerText = "Veuillez sélectionner un lieu";
   }
   else if(!btnCheck.checked){
-    errorMsg[6].innerHTML = "Veuillez cocher cette case";
-    errorMsg[5].innerHTML = "";
+    emptyError();
+    errorMsg[6].innerText = "Veuillez cocher cette case";
   }
   else {
-    for(var i=0; i < 7; i++) {
-      errorMsg[i].innerHTML = "";
-    }
+    emptyError();
     formValidation.reset();
     alert("Merci ! Votre réservation a été reçue.");
     closeModal();
   }
 });
-
-firstInput.value.match(onlyLetters)
