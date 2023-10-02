@@ -21,6 +21,8 @@ const quantityInput = document.getElementById("quantity");
 const btnRadio = document.querySelectorAll("input[name='location']");
 const btnCheck = document.getElementById("checkbox1");
 const errorMsg = document.querySelectorAll(".error");
+const confirmBg = document.getElementById("confirm");
+const confirmBtn = document.getElementById(".button-confirm");
 
 // List of character accepted
 const onlyLetters = new RegExp(/[a-zA-Z-]{2,}/i);
@@ -35,13 +37,13 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-
 // Close modal event
 modalSpan.forEach((span) => span.addEventListener("click", closeModal));
 
 // Close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  confirmBg.style.display = "none";
 }
 
 // Check if date is OK
@@ -79,6 +81,7 @@ function emptyError() {
   }
 }
 
+
 // Validation of all inputs
 formValidation.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -111,8 +114,7 @@ formValidation.addEventListener('submit', (event) => {
   }
   else {
     emptyError();
-    formValidation.reset();
-    alert("Merci ! Votre réservation a été reçue.");
-    closeModal();
+    confirmBg.style.display = "block";
+    confirmBg.addEventListener("click", closeModal);
   }
 });

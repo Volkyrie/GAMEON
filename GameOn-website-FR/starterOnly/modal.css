@@ -68,44 +68,6 @@ img {
   display: none;
 }
 
-.error {
-  color: #ff0000;
-  font-size: 14px;
-}
-
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -338,6 +300,29 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+}
+
+#confirm {
+  display: none;
+  position: fixed;
+  margin: 0;
+  z-index: 2;
+  background-color: white;
+  padding: 12px 12px;
+  border-radius: 15px;
+  border-color: #000000;
+  color: black;
+  font-size: 17px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -483,6 +468,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -520,6 +506,7 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+
 }
 
 @keyframes modalopen {
@@ -532,3 +519,36 @@ footer {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+}
+
+@media screen and (max-width: 540px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+
+} 
