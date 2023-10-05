@@ -312,15 +312,19 @@ input[data-error]::after {
   margin: 0;
   z-index: 2;
   background-color: white;
-  padding: 12px 12px;
+  padding: 30px 30px;
   border-radius: 15px;
-  border-color: #000000;
+  border: solid 2px #e54858;
   color: black;
   font-size: 17px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+#confirm .btn-submit {
+  margin-top: 20px;;
 }
 
 /* custom select styles */
