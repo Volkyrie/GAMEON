@@ -23,6 +23,7 @@ const btnCheck = document.getElementById("checkbox1");
 const errorMsg = document.querySelectorAll(".error");
 const confirmBg = document.getElementById("confirm");
 const confirmBtn = document.getElementById(".button-confirm");
+const form = document.getElementById("formID");
 
 // List of character accepted
 const onlyLetters = new RegExp(/[a-zA-Z-]{2,}/i);
@@ -35,6 +36,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  form.style.display = "block";
 }
 
 // Close modal event
@@ -122,6 +124,7 @@ formValidation.addEventListener('submit', (event) => {
   // Display validation message
   else {
     emptyError();
+    form.style.display = "none"
     confirmBg.style.display = "block";
     confirmBg.addEventListener("click", closeModal);
   }

@@ -308,23 +308,21 @@ input[data-error]::after {
 
 #confirm {
   display: none;
-  position: fixed;
-  margin: 0;
-  z-index: 2;
-  background-color: white;
-  padding: 30px 30px;
-  border-radius: 15px;
-  border: solid 2px #e54858;
-  color: black;
-  font-size: 17px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  box-sizing: border-box;
+  height: 710px;
 }
 
-#confirm .btn-submit {
-  margin-top: 20px;;
+#confirm span {
+  display: block;
+  box-sizing: flex;
+  font-size: 36px;
+  text-align: center;
+  padding-top: 280px;
+  font-weight: 400;
+}
+
+#confirmBtn {
+  margin-top: 270px;
 }
 
 /* custom select styles */
@@ -509,6 +507,14 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+
+  #confirm {
+    height: 690px;
+  }
+  
+  #confirm span {
+    padding-top: 250px;
   }
 
 }
